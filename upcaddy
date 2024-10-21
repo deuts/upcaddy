@@ -33,7 +33,7 @@ case $choice in
       1) /usr/local/bin/upcaddy_files/new1_subdomain ;;
       2) /usr/local/bin/upcaddy_files/new2_subdomain_forward ;;
       3) /usr/local/bin/upcaddy_files/new3_sub-subdomain ;;
-      4) /usr/local/bin/upcaddy_files/new4_subdomain_combined
+      4) /usr/local/bin/upcaddy_files/new4_subdomain_combined ;;
       *) echo "Invalid option. Exiting."; exec /usr/local/bin/upcaddy ;;
     esac
     ;;
