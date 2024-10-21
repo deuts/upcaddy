@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Source configuration file
+source /usr/local/bin/upcaddy_files/config.cfg
+
+# Prompt for subdomain, address, and port
+read -p "Enter subdomain (e.g., 'app' for app.$DOMAIN): " DOMAIN_PREFIX
+if [[ -z "$DOMAIN_PREFIX" ]]; then
+  echo "Subdomain cannot be empty. Exiting."
+  exec /usr/local/bin/upcaddy  # Return to menu
+fi
+
+read -p "Enter Container/Host/IP Address: " ADDRESS
+if [[ -z "$ADDRESS" ]]; then
+  echo "Address cannot be empty. Exiting."
+  exec /usr/local/bin/upcaddy  # Return to menu
+fi
+
+read -p "Enter port number: " PORT
+if [[ -z "$PORT" ]]; then
+  echo "Port cannot be empty. Exiting."
+  exec /usr/local/bin/upcaddy  # Return to menu
+fi
+
+# Define the config file
+CONFIG_FILE="${DOMAIN_PREFIX}.${DOMAIN}.caddy"
+
+# Check if file exists and confirm deletion
+if [[ -f "$CONFIG_FILE" ]]; then
+  echo "$CONFIG_FILE already exists."
+  read -p "Delete and recreate? (y/n): " delete_choice
+  if [[ "$delete_choice" != "y" && "$delete_choice" != "yes" ]]; then
+    echo "Exiting."
+    exec /usr/local/bin/upcaddy  # Return to menu
+  fi
+  rm "$CONFIG_FILE"
+fi
+
+# Create the new Caddy config file
+cat <<EOF > "$CONFIG_FILE"
+$DOMAIN_PREFIX.$DOMAIN {
+  reverse_proxy $ADDRESS:$PORT
+}
+EOF
+
+echo "Config file created: $CONFIG_FILE"
+exec /usr/local/bin/upcaddy  # Return to menu
