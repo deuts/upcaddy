@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Source configuration file
+source /usr/local/bin/upcaddy_files/config.cfg
+
 # Show the menu (includes head using cat)
 cat /usr/local/bin/upcaddy_files/head
 
