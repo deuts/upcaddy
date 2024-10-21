@@ -54,4 +54,5 @@ $DOMAIN_PREFIX.$DOMAIN {
 EOF
 
 echo "Config file created: $CONFIG_FILE"
+cat "$CONFIG_FILE"
 exec /usr/local/bin/upcaddy  # Return to menu
