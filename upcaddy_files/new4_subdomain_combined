@@ -4,7 +4,7 @@
 source /usr/local/bin/upcaddy_files/config.cfg
 
 # Prompt for subdomain, address, and port
-read -p "Enter subdomain (e.g., 'app' for $PRIVATE_SUBDOMAIN.$DOMAIN): " DOMAIN_PREFIX
+read -p "Enter subdomain (e.g., 'app' for app.$DOMAIN): " DOMAIN_PREFIX
 if [[ -z "$DOMAIN_PREFIX" ]]; then
   echo "Subdomain cannot be empty. Exiting."
   exec /usr/local/bin/upcaddy  # Return to menu
