@@ -60,6 +60,7 @@ cp ./upcaddy "$BIN_DIR/"
 cp upcaddy_files/new1_subdomain "$FILES_DIR/"
 cp upcaddy_files/new2_subdomain_forward "$FILES_DIR/"
 cp upcaddy_files/new3_sub-subdomain "$FILES_DIR/"
+cp upcaddy_files/new4_subdomain_combined "$FILES_DIR/"
 cp upcaddy_files/update "$FILES_DIR/"
 cp upcaddy_files/head "$FILES_DIR/"  # Copy the head file
 
@@ -68,6 +69,7 @@ chmod +x "$BIN_DIR/upcaddy"
 chmod +x "$FILES_DIR/new1_subdomain"
 chmod +x "$FILES_DIR/new2_subdomain_forward"
 chmod +x "$FILES_DIR/new3_sub-subdomain"
+chmod +x "$FILES_DIR/new4_subdomain_combined"
 chmod +x "$FILES_DIR/update"
 
 echo "Scripts and configuration files copied to $BIN_DIR and $FILES_DIR."
