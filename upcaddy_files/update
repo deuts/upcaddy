@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# Source the configuration file to get variables
+source /usr/local/bin/upcaddy_files/config.cfg
+
+# Save existing Caddyfile content to a variable
+EXISTING_CONTENT=$(<"$CADDYFILE_LOCATION")
+
+# Clear the Caddyfile for new content
+TEMP_CADDYFILE=$(mktemp)
+
+# Recursively find all .caddy files and copy their contents to a temporary Caddyfile
+find "$SEARCH_DIRECTORY" -name "*.caddy" 2>/dev/null | while read -r FILE
+do
+  # Check if the file exists before copying
+  if [[ -f "$FILE" ]]; then
+    echo "Adding contents of $FILE..."
+    
+    # Append the contents of the .caddy file to the temporary Caddyfile
+    cat "$FILE" >> "$TEMP_CADDYFILE"
+    
+    # Add a newline to separate entries
+    echo "" >> "$TEMP_CADDYFILE"
+  else
+    echo "Warning: File not found - $FILE"
+  fi
+done
+
+# Save the new content from the temporary Caddyfile to a variable
+NEW_CONTENT=$(<"$TEMP_CADDYFILE")
+
+# Compare the existing and new content
+if [[ "$EXISTING_CONTENT" == "$NEW_CONTENT" ]]; then
+  echo "No changes detected. The Caddyfile is up to date."
+  rm "$TEMP_CADDYFILE"  # Clean up the temporary file
+  exec /usr/local/bin/upcaddy  # Return to main menu
+fi
+
+# Show the differences
+echo "Changes detected in the Caddyfile:"
+diff <(echo "$EXISTING_CONTENT") <(echo "$NEW_CONTENT") || true
+
+# Prompt to save changes to the Caddyfile
+read -p "Do you want to save these changes to the Caddyfile? (y/n): " choice
+if [[ "$choice" == "y" || "$choice" == "yes" ]]; then
+  mv "$TEMP_CADDYFILE" "$CADDYFILE_LOCATION"
+  echo "Changes saved to $CADDYFILE_LOCATION."
+  
+  # Prompt to restart Caddy
+  read -p "Do you want to restart Caddy? (y/n): " restart_choice
+  if [[ "$restart_choice" == "y" || "$restart_choice" == "yes" ]]; then
+    echo "Restarting Caddy..."
+    docker restart caddy
+  else
+    echo "Caddy not restarted."
+  fi
+else
+  echo "Changes not saved."
+  rm "$TEMP_CADDYFILE"  # Clean up the temporary file
+fi
+
+# Return to the main upcaddy script
+exec /usr/local/bin/upcaddy  # Return to main menu
