@@ -56,7 +56,7 @@ fi
 
 # Copying pertinent files to BIN_DIR and FILES_DIR
 # Ensure that your scripts (upcaddy, new1_subdomain, new2_subdomain_forward, new3_sub-subdomain, update) are in the upcaddy_files directory
-cp upcaddy_files/upcaddy "$BIN_DIR/"
+cp ./upcaddy "$BIN_DIR/"
 cp upcaddy_files/new1_subdomain "$FILES_DIR/"
 cp upcaddy_files/new2_subdomain_forward "$FILES_DIR/"
 cp upcaddy_files/new3_sub-subdomain "$FILES_DIR/"
