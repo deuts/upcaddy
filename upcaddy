@@ -18,8 +18,11 @@ case $choice in
   1)
     echo "Please select the new config type:"
     echo "1. Standard subdomain on ${DOMAIN}"
+    echo "   (Description: Creates a standard reverse proxy config for ${DOMAIN})"
     echo "2. Forward subdomain on ${DOMAIN} to another site"
+    echo "   (Description: Sets up a reverse proxy with insecure TLS forwarding)"
     echo "3. Subdomain on private subdomain (${PRIVATE_SUBDOMAIN}.${DOMAIN})"
+    echo "   (Description: Creates a subdomain for internal/private use on ${PRIVATE_SUBDOMAIN}.${DOMAIN})"
     read -p "Enter your choice (1-3): " sub_choice
     case $sub_choice in
       1) /usr/local/bin/upcaddy_files/new1_subdomain ;;
