@@ -26,11 +26,14 @@ case $choice in
     echo "   Select if you're exposing a service from another system via port 80/443"
     echo "3. Subdomain on private subdomain (${PRIVATE_SUBDOMAIN}.${DOMAIN})"
     echo "   Select if you're proxying your serivce to sub.${PRIVATE_SUBDOMAIN}.${DOMAIN} from a service running on a private IP address "
+    echo "4. Subdomain on (${PRIVATE_SUBDOMAIN}.${DOMAIN})"
+    echo "   Select if you're proxying your serivce to another Caddy server via port 80/443 "
     read -p "Enter your choice (1-3): " sub_choice
     case $sub_choice in
       1) /usr/local/bin/upcaddy_files/new1_subdomain ;;
       2) /usr/local/bin/upcaddy_files/new2_subdomain_forward ;;
       3) /usr/local/bin/upcaddy_files/new3_sub-subdomain ;;
+      4) /usr/local/bin/upcaddy_files/new4_subdomain_combined
       *) echo "Invalid option. Exiting."; exec /usr/local/bin/upcaddy ;;
     esac
     ;;
