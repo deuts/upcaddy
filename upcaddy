@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Show the menu (includes head using cat)
+cat /usr/local/bin/upcaddy_files/head
+
+echo ""
+echo "Please select an option:"
+echo "1. Create a new Caddy config file"
+echo "2. Update and consolidate Caddy configs"
+echo "3. Exit"
+echo ""
+
+# Read user selection
+read -p "Enter your choice (1-3): " choice
+
+# Handle selection
+case $choice in
+  1)
+    echo "Please select the new config type:"
+    echo "1. Standard subdomain on ${DOMAIN}"
+    echo "2. Forward subdomain on ${DOMAIN} to another site"
+    echo "3. Subdomain on private subdomain (${PRIVATE_SUBDOMAIN}.${DOMAIN})"
+    read -p "Enter your choice (1-3): " sub_choice
+    case $sub_choice in
+      1) /usr/local/bin/upcaddy_files/new1_subdomain ;;
+      2) /usr/local/bin/upcaddy_files/new2_subdomain_forward ;;
+      3) /usr/local/bin/upcaddy_files/new3_sub-subdomain ;;
+      *) echo "Invalid option. Exiting."; exec /usr/local/bin/upcaddy ;;
+    esac
+    ;;
+  2)
+    echo "Consolidate Caddyfile and restart Caddy"
+    /usr/local/bin/upcaddy_files/update
+    ;;
+  3)
+    echo "Exiting..."
+    exit 0
+    ;;
+  *)
+    echo "Invalid option. Exiting."
+    exit 1
+    ;;
+esac
