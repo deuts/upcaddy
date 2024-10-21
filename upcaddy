@@ -5,8 +5,8 @@ cat /usr/local/bin/upcaddy_files/head
 
 echo ""
 echo "Please select an option:"
-echo "1. Create a new Caddy config file"
-echo "2. Update and consolidate Caddy configs"
+echo "1. Create a new .caddy file"
+echo "2. Consolidate .caddy files and update Caddy"
 echo "3. Exit"
 echo ""
 
