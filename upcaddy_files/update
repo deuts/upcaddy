@@ -44,6 +44,11 @@ diff <(echo "$EXISTING_CONTENT") <(echo "$NEW_CONTENT") || true
 read -p "Do you want to save these changes to the Caddyfile? (y/n): " choice
 if [[ "$choice" == "y" || "$choice" == "yes" ]]; then
   mv "$TEMP_CADDYFILE" "$CADDYFILE_LOCATION"
+  echo "Saving changes to Caddyfile..."
+  for i in {3..1}; do
+      echo "$i..."
+      sleep 1
+  done
   echo "Changes saved to $CADDYFILE_LOCATION."
   
   # Prompt to restart Caddy
