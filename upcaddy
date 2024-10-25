@@ -20,20 +20,16 @@ read -p "Enter your choice (1-3): " choice
 case $choice in
   1)
     echo "Please select the new config type:"
-    echo "1. Standard subdomain on ${DOMAIN}"
-    echo "   Select this if your subdomain on ${DOMAIN}'s A record points to this systems' public IP address"
-    echo "2. Forward subdomain on ${DOMAIN} to another site"
-    echo "   Select if you're exposing a service from another system via port 80/443"
-    echo "3. Subdomain on private subdomain (${PRIVATE_SUBDOMAIN}.${DOMAIN})"
-    echo "   Select if you're proxying your serivce to sub.${PRIVATE_SUBDOMAIN}.${DOMAIN} from a service running on a private IP address "
-    echo "4. Subdomain on (${PRIVATE_SUBDOMAIN}.${DOMAIN})"
-    echo "   Select if you're proxying your serivce to another Caddy server via port 80/443 "
+    echo "1. Public subdomain on ${DOMAIN}"
+    echo "2. Private subdomain on ${PRIVATE_SUBDOMAIN}.${DOMAIN}"
+    echo "3. Send relay of a subdomain on ${DOMAIN} via port 443"
+    echo "4. Receive relay of a subdomain on ${DOMAIN} via port 443"
     read -p "Enter your choice (1-4): " sub_choice
     case $sub_choice in
-      1) /usr/local/bin/upcaddy_files/new1_subdomain ;;
-      2) /usr/local/bin/upcaddy_files/new2_subdomain_forward ;;
-      3) /usr/local/bin/upcaddy_files/new3_sub-subdomain ;;
-      4) /usr/local/bin/upcaddy_files/new4_subdomain_combined ;;
+      1) /usr/local/bin/upcaddy_files/new1_public_subdomain ;;
+      2) /usr/local/bin/upcaddy_files/new2_private_subdomain ;;
+      3) /usr/local/bin/upcaddy_files/new3_send_subdomain ;;
+      4) /usr/local/bin/upcaddy_files/new4_receive_subdomain ;;
       *) echo "Invalid option. Exiting."; exec /usr/local/bin/upcaddy ;;
     esac
     ;;
