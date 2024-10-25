@@ -18,10 +18,13 @@ UPCaddy is a shell script tool designed to streamline the management of Caddy co
 
 ## Installation
 
-To install UPCaddy, execute the following command:
+To install UPCaddy:
 
 ```bash
-bash install.sh
+git clone https://github.com/deuts/upcaddy.git
+cd upcaddy
+chmod +x install.sh
+sudo ./install.sh
 ```
 
 This script will:
