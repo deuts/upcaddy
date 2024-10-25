@@ -29,7 +29,7 @@ fi
 for key in "${!config_vars[@]}"; do
   value="${!key}"  # Dynamically get the value of each key (if already set in FILES_DIR/config.cfg)
   if [[ -z "$value" ]]; then
-    read -p "Enter value for $key (e.g., ${config_vars[$key]}): " value
+    read -p "Enter value for $key (${config_vars[$key]}): " value
     eval "$key=\"$value\""  # Set variable in the current environment
   fi
 done
