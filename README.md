@@ -1,7 +1,3 @@
-Here's an improved version of your README for UPCaddy, focusing on clarity and flow:
-
----
-
 # UPCaddy
 
 UPCaddy is a shell script tool designed to streamline the management of Caddy configurations. It simplifies the creation and updating of `.caddy` files, making it easier to set up reverse proxies and other configurations through an interactive, menu-driven interface.
@@ -92,7 +88,3 @@ Contributions are welcome! Please submit a pull request or open an issue for any
 ## License
 
 This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for more details.
-
---- 
-
-Feel free to adjust any section as needed!
