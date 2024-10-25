@@ -5,7 +5,9 @@ UPCaddy is a shell script tool designed to streamline the management of Caddy co
 ## Pre-requisites
 
 - Caddy must be installed in a Docker container named `caddy`.
-- For private subdomains to function, you need a [custom Caddy build with Cloudflare DNS challenge support](https://github.com/deuts/caddy). Additionally, ensure your DNS is managed through Cloudflare.
+- For private subdomains to function, you need a [custom Caddy build with Cloudflare DNS challenge support](https://github.com/deuts/caddy).
+  - Your domain's DNS must be managed through Cloudflare.
+  - You need Cloudflare's API Token
 
 ## Table of Contents
 
