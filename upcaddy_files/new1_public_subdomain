@@ -23,7 +23,7 @@ if [[ -z "$PORT" ]]; then
 fi
 
 # Define the config file
-CONFIG_FILE="${DOMAIN_PREFIX}.${DOMAIN}.caddy"
+CONFIG_FILE="${DOMAIN_PREFIX}.caddy"
 
 # Check if file exists and confirm deletion
 if [[ -f "$CONFIG_FILE" ]]; then
@@ -45,4 +45,5 @@ EOF
 
 echo "Config file created: $CONFIG_FILE"
 cat "$CONFIG_FILE"
+sleep 2
 exec /usr/local/bin/upcaddy  # Return to menu
