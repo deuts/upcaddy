@@ -54,7 +54,7 @@ Selecting option 1 allows you to choose from the following configuration types:
 3. Send relay of a subdomain
 4. Receive relay of a subdomain
 
-The script will prompt you for necessary details, such as the subdomain, address, and port. The `$subdomain.caddy` file will be created in the directory that you run the `upcaddy` command.
+The script will prompt you for necessary details, such as the subdomain, address, and port. The `$subdomain.caddy` file will be created in the directory that you run the `upcaddy` command, so make sure to execute this within the `SEARCH_DIRECTORY` so it will be consolidated into the Caddyfile in the next step.
 
 ### Consolidating .caddy Files
 
