@@ -7,18 +7,21 @@ source /usr/local/bin/upcaddy_files/config.cfg
 read -p "Enter subdomain (e.g., 'app' for app.$DOMAIN): " DOMAIN_PREFIX
 if [[ -z "$DOMAIN_PREFIX" ]]; then
   echo "Subdomain cannot be empty. Exiting."
+  sleep 1
   exec /usr/local/bin/upcaddy  # Return to menu
 fi
 
 read -p "Enter Container/Host/IP Address: " ADDRESS
 if [[ -z "$ADDRESS" ]]; then
   echo "Address cannot be empty. Exiting."
+  sleep 1
   exec /usr/local/bin/upcaddy  # Return to menu
 fi
 
 read -p "Enter port number: " PORT
 if [[ -z "$PORT" ]]; then
   echo "Port cannot be empty. Exiting."
+  sleep 1
   exec /usr/local/bin/upcaddy  # Return to menu
 fi
 
@@ -31,6 +34,7 @@ if [[ -f "$CONFIG_FILE" ]]; then
   read -p "Delete and recreate? (y/n): " delete_choice
   if [[ "$delete_choice" != "y" && "$delete_choice" != "yes" ]]; then
     echo "Exiting."
+    sleep 1
     exec /usr/local/bin/upcaddy  # Return to menu
   fi
   rm "$CONFIG_FILE"
