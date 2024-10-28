@@ -1,7 +1,3 @@
----
-title: Upcaddy is the way to go.
----
-
 # UPCaddy
 
 UPCaddy is a shell script tool designed to streamline the management of Caddy configurations. It simplifies the creation and updating of `.caddy` files, making it easier to set up reverse proxies and other configurations through an interactive, menu-driven interface.
