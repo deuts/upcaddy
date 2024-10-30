@@ -1,0 +1,1 @@
+- [ ] When consolidating to the Caddyfile, it should in the comment the path to the `.caddy` file
