@@ -87,6 +87,9 @@ This configuration will be saved at `/usr/local/bin/upcaddy_files/config.cfg`, a
 - `upcaddy_files/new3_send_subdomain`: Sets up a send relay for a subdomain.
 - `upcaddy_files/new4_receive_subdomain`: Sets up a receive relay for a subdomain.
 
+## Roadmap
+- Check [todos](todo.md) for the plans to implement in the future.
+
 ## Contributing
 
 Contributions are welcome! Please submit a pull request or open an issue for any bugs or suggestions.
