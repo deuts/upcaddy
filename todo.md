@@ -1,2 +1,3 @@
+## Upcaddy Todos
 - [ ] When consolidating to the Caddyfile, it should in the comment the path to the `.caddy` file
 - [ ] Option to just restart Caddy, especially if there's no change in the Caddyfile, or the previous process was cancelled.
